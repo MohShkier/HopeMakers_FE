@@ -11,6 +11,7 @@ import BottomBar from './components/BottomBar/BottomBar';
       <NavBar/>
       <AccountPages/>
       <BottomBar/>
+      <SignUpPage/>
       </>
     );
   }
