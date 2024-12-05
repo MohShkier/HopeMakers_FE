@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import SideBarItem from "./SideBarItems";
-import { iconClasses } from "@mui/material";
 const AccountPageSidebar = ({ editCurrentPage }) => {
 
   return (
@@ -11,7 +10,15 @@ const AccountPageSidebar = ({ editCurrentPage }) => {
         <SideBarItem title={"Settings"} iconClasses={"fa-solid fa-gear"} onClickItem={() => editCurrentPage("Settings")} />
         <SideBarItem title={"Security"} iconClasses={"fa-solid fa-shield"} onClickItem={() => editCurrentPage("Security")} />
         <SideBarItem title={"Donate"} iconClasses={"fa-solid fa-donate"} onClickItem={() => editCurrentPage("Donate")} />
-        <SideBarItem title={"Delete Account"} iconClasses={"fa-solid fa-trash"} liClasses={'!flex !items-center !space-x-2 !text-red-500'} onClickItem={() => editCurrentPage("Delete Account")} />
+
+        {/* MOVE IT INSIDE SECURITY SETTINGS LATER
+        <SideBarItem
+         title={"Delete Account"} 
+         iconClasses={"fa-solid fa-trash"} 
+         liClasses={'!flex !items-center !space-x-2 !text-red-500'}
+          onClickItem={() => editCurrentPage("Delete Account")} 
+
+          />*/}
 
       </ul>
     </div>

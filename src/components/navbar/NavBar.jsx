@@ -21,9 +21,7 @@ const Navbar = () => {
                 <img src="./logo.jpg" alt="Hope Maker Logo" className="" />
             </div>
             <div className="lg:hidden" onClick={toggleSidebar}>
-                <a>
                     <i className="fa-solid fa-bars"></i>
-                </a>
             </div>
             <nav className="lg:pr-6 hidden lg:block">
                 <ul className="flex gap-4 items-center text-white">

@@ -15,17 +15,17 @@ const BottomBar = () => {
         <span>Home</span>
       </div>
       <div className="flex flex-col items-center relative">
-      <DiAptana className="text-2xl"/>
-      <span>Settings</span>
-        
+        <DiAptana className="text-2xl" />
+        <span>Settings</span>
+
       </div>
       <div className="flex flex-col items-center">
-      <MdOutlineSecurity className="text-2xl"/>
-      <span>Security</span>
+        <MdOutlineSecurity className="text-2xl" />
+        <span>Security</span>
       </div>
       <div className="flex flex-col items-center relative">
-      <LiaDonateSolid className="text-2xl"/>
-      <span>Donate</span>
+        <LiaDonateSolid className="text-2xl" />
+        <span>Donate</span>
         <span className="absolute -top-1 ms-10 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
           0
         </span>

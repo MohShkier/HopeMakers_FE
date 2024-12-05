@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import AccountPageSidebar from './AccountPageSideBar';
 import ProfileContent from './ProfileContent';
 import LoginPage from "../Login-Page/LoginPage"
+import SettingsPage from './settingsPage';
+import SecurityPage from './SecurityPage';
 const AccountPages = () => {
   const [currentPage, setCurrentPage] = useState('');
 
@@ -16,10 +18,10 @@ const AccountPages = () => {
       pageContent = <ProfileContent />;
       break;
     case 'Settings':
-      pageContent = <LoginPage/>;
+      pageContent = <SettingsPage/>;
       break;
     case 'Security':
-      pageContent = <LoginPage />;
+      pageContent = <SecurityPage />;
       break;
     case 'Donate':
       pageContent = <LoginPage />;
