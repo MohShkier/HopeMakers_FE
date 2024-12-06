@@ -5,7 +5,7 @@ const ProfileContent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col !w-full p-6 !justify-center items-center">
+    <div className="flex flex-col !w-full p-6 !justify-center items-center mb-14 lg:!mb-0">
       <h1 className="text-3xl font-bold mb-4 text-blue-500">My Profile</h1>
 
       <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full lg:w-2/3">

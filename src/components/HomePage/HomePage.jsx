@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 !w-full mb-20 lg:mb-0">
       {/* Hero Section */}
       <section className="bg-blue-500 text-white text-center py-20">
         <h1 className="text-4xl font-bold mb-4">Empowering People with Disabilities</h1>

@@ -18,7 +18,7 @@ const SecurityPage = () => {
 
 
   return (
-    <div className="flex flex-col !w-full p-6 !justify-center mt-20 items-center">
+    <div className="flex flex-col !w-full p-6 !justify-center mt-20 items-center mb-14 lg:!mb-0">
       <h1 className="text-3xl font-bold mb-4 text-blue-500">Security</h1>
 
       {/* Change Password Section */}

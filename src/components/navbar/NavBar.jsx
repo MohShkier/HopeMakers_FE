@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <div className="p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-between md:justify-between !z-10">
             <div className="flex items-center">
-                <img src="./logo.jpg" alt="Hope Maker Logo" className="" />
+                <img src="/logo.jpg" alt="Hope Makers Logo" className="" />
             </div>
             <div className="lg:hidden" onClick={toggleSidebar}>
                     <i className="fa-solid fa-bars"></i>

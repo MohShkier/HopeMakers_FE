@@ -4,12 +4,21 @@ import { NavLink } from "react-router-dom";
 
 const AccountPageSidebar = () => {
   return (
-    <div className="w-72 min-h-screen bg-white shadow-md p-6 lg:flex flex-col items-start hidden">
-      {/* Sidebar Header */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-8">My Profile</h2>
-      
-      {/* Sidebar Links */}
+   <div>
+     <div className="w-72 min-h-screen bg-white shadow-md p-6 lg:flex flex-col items-start hidden sticky top-0">
       <ul className="flex flex-col w-full space-y-4">
+      <NavLink
+          to="/pages/home"
+          className={({ isActive }) =>
+            `flex items-center space-x-4 px-4 py-3 rounded-lg  ${
+              isActive
+                ? "bg-blue-500 text-white shadow-lg"
+                : "text-gray-700 hover:bg-gray-100 hover:shadow-md transition-all"
+            }`
+          }
+        >
+          <SideBarItem title={"Home"} iconClasses={"fa-solid fa-house"} />
+        </NavLink>
         <NavLink
           to="/pages/profile"
           className={({ isActive }) =>
@@ -63,6 +72,7 @@ const AccountPageSidebar = () => {
         </NavLink>
       </ul>
     </div>
+   </div>
   );
 };
 
