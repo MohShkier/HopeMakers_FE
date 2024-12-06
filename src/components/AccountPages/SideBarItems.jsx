@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SideBarItem = ({title, iconClasses , liClasses, onClickItem}) => {
+const SideBarItem = ({title, iconClasses , liClasses}) => {
     return (
         <>
 
-            <li className={liClasses ? liClasses : "flex items-center space-x-2 hover:cursor-pointer hover:bg-gray-300 hover:p-1 hover:rounded-lg transition duration-300"} onClick={onClickItem}>
+            <li className={liClasses ? liClasses : "px-2 flex items-center space-x-2 hover:cursor-pointer "}>
                 <i className={iconClasses}></i>
                 <span>{title}</span>
             </li>
