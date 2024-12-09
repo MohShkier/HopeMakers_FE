@@ -1,53 +1,65 @@
-import React, { useState } from "react";
+import React from 'react';
+import { useLanguage } from '../../Context/LanguageContext';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../Context/ThemeContext';
 
 const SettingsPage = () => {
-  const [language, setLanguage] = useState("en-US");
-  const [theme, setTheme] = useState("light"); // light or dark mode
-  const [notifications, setNotifications] = useState(true); // Email Notifications
+  const { theme, toggleTheme } = useTheme();
+  const { language, changeLanguage } = useLanguage();
+  const { t } = useTranslation();
 
-  // Handle changes in language
-  const handleLanguageChange = (e) => setLanguage(e.target.value);
+  const handleLanguageChange = (e) => changeLanguage(e.target.value);
 
-  // Toggle theme (light/dark mode)
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-    document.body.classList.toggle("dark"); // Apply dark mode class to body
+  const handleNotificationsChange = (e) => {
+    localStorage.setItem('notifications', JSON.stringify(e.target.checked));
   };
 
-  // Handle notifications preference
-  const handleNotificationsChange = (e) => setNotifications(e.target.checked);
-
   return (
-    <div className="flex flex-col !w-full p-6 !justify-center items-center">
-      <h1 className="text-3xl font-bold mb-4 text-blue-500">Settings</h1>
+    <div
+      className={`flex flex-col w-full p-6 justify-center items-center transition-colors duration-300 ${
+        theme === 'dark' ? 'bg-gray-900 text-gray-200' : 'bg-gray-50 text-gray-800'
+      } ${language === 'ar' ? 'rtl' : 'ltr'}`}
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
+    >
+      <h1 className="text-3xl font-bold mb-4 text-blue-500 dark:text-blue-400">
+        {t("settingsTitle")}
+      </h1>
 
-      {/* Language Settings Section */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full lg:w-2/3">
-        <h2 className="text-xl font-bold text-gray-800">Language Preferences</h2>
-        <div className="mt-4">
-          <label htmlFor="language" className="block font-medium mb-1">Select Language</label>
-          <select
-            id="language"
-            value={language}
-            onChange={handleLanguageChange}
-            className="w-full border p-2 rounded"
-          >
-            <option value="en-US">English (US)</option>
-            <option value="de-DE">العربية (الأردن)</option>
-            {/* Add other languages as needed */}
-          </select>
-        </div>
+      {/* Language Settings */}
+      <div
+        className={`w-full lg:w-2/3 p-6 mb-6 shadow-md rounded-lg transition-colors duration-300 ${
+          theme === 'dark' ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-800'
+        }`}
+      >
+        <h2 className="text-xl font-bold mb-4">{t("languagePreferences")}</h2>
+        <label htmlFor="language" className="block font-medium mb-2">
+          {t("selectLanguage")}
+        </label>
+        <select
+          id="language"
+          value={language}
+          onChange={handleLanguageChange}
+          className={`w-full border p-2 rounded ${
+            theme === 'dark' ? 'bg-gray-700 border-gray-600 text-gray-200' : 'bg-white border-gray-300 text-gray-800'
+          }`}
+        >
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
       </div>
 
-      {/* Theme Section (Light/Dark Mode) */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full lg:w-2/3">
-        <h2 className="text-xl font-bold text-gray-800">Appearance</h2>
-        <div className="mt-4 flex items-center">
-          <label htmlFor="theme" className="mr-4">Dark Mode</label>
+      {/* Theme Section */}
+      <div
+        className={`w-full lg:w-2/3 p-6 mb-6 shadow-md rounded-lg transition-colors duration-300 ${
+          theme === 'dark' ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-800'
+        }`}
+      >
+        <h2 className="text-xl font-bold mb-4">{t("appearance")}</h2>
+        <div className="flex items-center justify-between gap-4">
+          <span>{theme === 'dark' ? t("lightMode") : t("darkMode")}</span>
           <input
             type="checkbox"
-            id="theme"
-            checked={theme === "dark"}
+            checked={theme === 'dark'}
             onChange={toggleTheme}
             className="toggle-checkbox"
           />
@@ -55,14 +67,18 @@ const SettingsPage = () => {
       </div>
 
       {/* Notification Preferences */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full lg:w-2/3">
-        <h2 className="text-xl font-bold text-gray-800">Notification Preferences</h2>
-        <div className="mt-4 flex items-center">
-          <label htmlFor="notifications" className="mr-4">Email Notifications</label>
+      <div
+        className={`w-full lg:w-2/3 p-6 mb-6 shadow-md rounded-lg transition-colors duration-300 ${
+          theme === 'dark' ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-800'
+        }`}
+      >
+        <h2 className="text-xl font-bold mb-4">{t("notificationPreferences")}</h2>
+        <div className="flex items-center justify-between gap-4">
+          <label htmlFor="notifications">{t("emailNotifications")}</label>
           <input
             type="checkbox"
             id="notifications"
-            checked={notifications}
+            defaultChecked={JSON.parse(localStorage.getItem('notifications')) || true}
             onChange={handleNotificationsChange}
             className="toggle-checkbox"
           />
@@ -70,16 +86,19 @@ const SettingsPage = () => {
       </div>
 
       {/* Account Settings */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full lg:w-2/3">
-        <h2 className="text-xl font-bold text-gray-800">Account Settings</h2>
-        <div className="mt-4">
-          <p className="text-sm text-gray-500">Manage your account settings here.</p>
-        </div>
-        <div className="flex justify-between mt-4">
-          <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-            Edit Account Info
-          </button>
-        </div>
+      <div
+        className={`w-full lg:w-2/3 p-6 mb-6 shadow-md rounded-lg transition-colors duration-300 ${
+          theme === 'dark' ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-800'
+        }`}
+      >
+        <h2 className="text-xl font-bold mb-4">{t("accountSettings")}</h2>
+        <p className="text-sm mb-4">{t("manageAccountSettings")}</p>
+        <button
+          className="px-6 py-2 rounded-lg transition-colors duration-300 
+          bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+        >
+          {t("editAcc")}
+        </button>
       </div>
     </div>
   );

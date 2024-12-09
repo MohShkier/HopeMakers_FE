@@ -9,7 +9,7 @@ const AccountPages = () => {
 
   return (
     <>
-      <div className="flex min-h-screen !w-full bg-blue-50">
+      <div className="flex min-h-screen !w-full bg-blue-50" dir={language==="en" ? "!ltr" : "rtl"}>
         <AccountPageSidebar />
       </div>
     </>

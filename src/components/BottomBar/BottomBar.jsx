@@ -6,11 +6,13 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { LiaDonateSolid } from "react-icons/lia";
 import { DiAptana } from "react-icons/di";
 import { NavLink } from "react-router-dom";
-
-
+import { useLanguage } from "../../Context/LanguageContext";
+import { useTranslation } from "react-i18next";
 const BottomBar = () => {
+  const { t } = useTranslation();
+  const { language, changeLanguage } = useLanguage();
   return (
-    <div className="fixed bottom-0 w-full bg-white border-t border-gray-300 shadow-lg flex justify-around py-2 text-sm text-gray-600 lg:hidden">
+    <div className={"fixed bottom-0 w-full bg-white border-t border-gray-300 shadow-lg flex justify-around py-2 text-sm text-gray-600 lg:hidden"} dir={ language != "en" ? "rtl" : "ltr"}>
       <NavLink
         to="/pages/home"
         className={({ isActive }) =>
@@ -22,7 +24,7 @@ const BottomBar = () => {
       >
         <div className="flex flex-col items-center">
           <AiOutlineHome className="text-2xl" />
-          <span>Home</span>
+          <span>{t("Home")}</span>
         </div>
       </NavLink>
 
@@ -38,7 +40,7 @@ const BottomBar = () => {
       >
         <div className="flex flex-col items-center relative">
           <DiAptana className="text-2xl" />
-          <span>Settings</span>
+          <span>{t("Settings")}</span>
 
         </div>
       </NavLink>
@@ -56,7 +58,7 @@ const BottomBar = () => {
 
         <div className="flex flex-col items-center">
           <MdOutlineSecurity className="text-2xl" />
-          <span>Security</span>
+          <span>{t("Security")}</span>
         </div>
       </NavLink>
 
@@ -72,7 +74,7 @@ const BottomBar = () => {
       >
         <div className="flex flex-col items-center relative">
           <LiaDonateSolid className="text-2xl" />
-          <span>Donate</span>
+          <span>{t("Donate")}</span>
           <span className="absolute -top-1 ms-10 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
             0
           </span>
@@ -91,7 +93,7 @@ const BottomBar = () => {
       >
         <div className="flex flex-col items-center">
           <AiOutlineUser className="text-2xl" />
-          <span>Profile</span>
+          <span>{t("Profile")}</span>
         </div>
       </NavLink>
 

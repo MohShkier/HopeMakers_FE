@@ -1,0 +1,20 @@
+{
+  "settingsTitle": "Settings",
+  "languagePreferences": "Language Preferences",
+  "selectLanguage": "Select Language",
+  "apperance": "Apperance",
+  "darkmode" : "Switch To Dark Mode",
+  "notificatioPreferences" : "Notification Preferences",
+  "emailNotification" : "Email Notifications",
+  "accountSettings" : "Account Settings",
+  "manageAcc" : "Manage Your Account Settings Here",
+  "editAcc" : "Edit Account Info",
+  "Home" : "Home",
+  "Settings" : "Settings",
+  "Security" : "Security",
+  "Donate" : "Donate",
+  "Profile" : "Profile"
+
+
+  
+}

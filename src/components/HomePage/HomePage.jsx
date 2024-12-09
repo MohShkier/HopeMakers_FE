@@ -1,17 +1,58 @@
 import React from "react";
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const HomePage = () => {
+  const data = {
+    labels: ['Normal People', 'Disabled People'],
+    datasets: [
+      {
+        data: [70, 30],
+        backgroundColor: ['#EF4444', '#10B981'],
+        hoverBackgroundColor: [ '#B91C1C', '#047857'],
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#374151',
+        },
+      },
+      tooltip: {
+        enabled: true,
+      },
+    },
+  };
+
   return (
     <div className="bg-gray-100 !w-full mb-20 lg:mb-0">
       {/* Hero Section */}
-      <section className="bg-blue-500 text-white text-center py-20">
-        <h1 className="text-4xl font-bold mb-4">Empowering People with Disabilities</h1>
+      
+      <section
+        className="bg-blue-500 text-white text-center py-20 bg-cover bg-center"
+        style={{ backgroundImage: "url('/bg.jpg')" }}
+      >        <h1 className="text-4xl font-bold mb-4">Empowering People with Disabilities</h1>
         <p className="text-xl mb-6">Access the tools and resources you need to live independently.</p>
         <button className="bg-white text-blue-500 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors">
           Get Started
         </button>
       </section>
-
+      <div className=" p-6 !w-full flex flex-row items-center justify-center  " id="chart">
+        <section className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">
+            Disabled Percentage Over The World
+          </h2>
+          <div className="flex justify-center">
+            <Pie data={data} options={options} height={200}/>
+          </div>
+        </section>
+      </div>
       {/* How It Works Section */}
       <section className="py-16">
         <div className="container mx-auto text-center">
