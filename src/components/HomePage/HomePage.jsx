@@ -10,7 +10,7 @@ const HomePage = () => {
       {
         data: [70, 30],
         backgroundColor: ['#EF4444', '#10B981'],
-        hoverBackgroundColor: [ '#B91C1C', '#047857'],
+        hoverBackgroundColor: ['#B91C1C', '#047857'],
       },
     ],
   };
@@ -33,7 +33,7 @@ const HomePage = () => {
   return (
     <div className="bg-gray-100 !w-full mb-20 lg:mb-0">
       {/* Hero Section */}
-      
+
       <section
         className="bg-blue-500 text-white text-center py-20 bg-cover bg-center"
         style={{ backgroundImage: "url('/bg.jpg')" }}
@@ -49,7 +49,7 @@ const HomePage = () => {
             Disabled Percentage Over The World
           </h2>
           <div className="flex justify-center">
-            <Pie data={data} options={options} height={200}/>
+            <Pie data={data} options={options} height={200} />
           </div>
         </section>
       </div>
@@ -141,17 +141,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <footer className="bg-blue-500 text-white py-6 text-center">
-        <div className="space-x-4">
-          <button className="bg-white text-blue-500 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors">
-            Sign Up for Updates
-          </button>
-          <button className="bg-white text-blue-500 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors">
-            Contact Us
-          </button>
-        </div>
-      </footer>
+     
     </div>
   );
 };

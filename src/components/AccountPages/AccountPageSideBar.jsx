@@ -11,13 +11,14 @@ const AccountPageSidebar = () => {
   const { language } = useLanguage();
 
   return (
-    <div dir={language === "en" ? "ltr" : "rtl"}>
-      <div
-        className={`w-72 min-h-screen p-6 lg:flex flex-col items-start hidden shadow-md transition-colors duration-300 ${
-          theme === "dark" ? "bg-gray-900 border-blue-400 border-r-2  text-gray-200" : "bg-white text-gray-800"
-        }`}
-      >
-        <ul className="flex flex-col w-full space-y-4">
+    <div 
+      className={`!min-h-screen transition-colors duration-300 ${
+        theme === "dark" ? "bg-gray-900 border-blue-400 rtl:border-l-2 ltr:border-r-2 text-gray-200" : "bg-white text-gray-800"
+      }`}
+      dir={language === "en" ? "ltr" : "rtl"}
+    >
+      <div className="w-72 h-full p-6  lg:flex flex-col items-start hidden shadow-md ">
+        <ul className="flex flex-col w-full space-y-4 sticky top-0 ">
           <NavLink
             to="/pages/home"
             className={({ isActive }) =>

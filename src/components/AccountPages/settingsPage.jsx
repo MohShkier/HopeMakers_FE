@@ -16,8 +16,8 @@ const SettingsPage = () => {
 
   return (
     <div
-      className={`flex flex-col w-full p-6 justify-center items-center transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-gray-900 text-gray-200' : 'bg-gray-50 text-gray-800'
+      className={`flex flex-col w-full p-6 justify-center items-center  transition-colors duration-300 ${
+        theme === 'dark' ? 'bg-gray-900 text-gray-200  border-t-2 border-blue-500' : 'bg-gray-50 text-gray-800'
       } ${language === 'ar' ? 'rtl' : 'ltr'}`}
       dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
@@ -54,9 +54,9 @@ const SettingsPage = () => {
           theme === 'dark' ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-800'
         }`}
       >
-        <h2 className="text-xl font-bold mb-4">{t("appearance")}</h2>
+        <h2 className="text-xl font-bold mb-4">{t("apperance")}</h2>
         <div className="flex items-center justify-between gap-4">
-          <span>{theme === 'dark' ? t("lightMode") : t("darkMode")}</span>
+          <span>{t("darkmode")}</span>
           <input
             type="checkbox"
             checked={theme === 'dark'}
@@ -72,9 +72,9 @@ const SettingsPage = () => {
           theme === 'dark' ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-800'
         }`}
       >
-        <h2 className="text-xl font-bold mb-4">{t("notificationPreferences")}</h2>
+        <h2 className="text-xl font-bold mb-4">{t("notificatioPreferences")}</h2>
         <div className="flex items-center justify-between gap-4">
-          <label htmlFor="notifications">{t("emailNotifications")}</label>
+          <label htmlFor="notifications">{t("emailNotification")}</label>
           <input
             type="checkbox"
             id="notifications"
@@ -92,7 +92,7 @@ const SettingsPage = () => {
         }`}
       >
         <h2 className="text-xl font-bold mb-4">{t("accountSettings")}</h2>
-        <p className="text-sm mb-4">{t("manageAccountSettings")}</p>
+        <p className="text-sm mb-4">{t("manageAcc")}</p>
         <button
           className="px-6 py-2 rounded-lg transition-colors duration-300 
           bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"

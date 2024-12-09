@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 const SecurityPage = () => {
+  const { t } = useTranslation();
   const [loginActivities, setLoginActivities] = useState([
     {
       device: "Samsung S24 Ultra",
@@ -19,7 +21,7 @@ const SecurityPage = () => {
 
   return (
     <div className="flex flex-col !w-full p-6 !justify-center mt-20 items-center mb-14 lg:!mb-0">
-      <h1 className="text-3xl font-bold mb-4 text-blue-500">Security</h1>
+      <h1 className="text-3xl font-bold mb-4 text-blue-500">{t("security")}</h1>
 
       {/* Change Password Section */}
       <div className="bg-white dark:bg-darkBg shadow-md rounded-lg p-6 mb-6 w-full lg:w-2/3">
