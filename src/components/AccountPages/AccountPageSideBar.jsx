@@ -18,7 +18,7 @@ const AccountPageSidebar = () => {
       dir={language === "en" ? "ltr" : "rtl"}
     >
       <div className="w-72 h-full p-6  lg:flex flex-col items-start hidden shadow-md ">
-        <ul className="flex flex-col w-full space-y-4 sticky top-0 ">
+        <ul className="flex flex-col w-full space-y-4 sticky top-32 ">
           <NavLink
             to="/pages/home"
             className={({ isActive }) =>

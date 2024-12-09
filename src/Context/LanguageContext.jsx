@@ -13,6 +13,7 @@ export const LanguageProvider = ({ children }) => {
     i18n.changeLanguage(lang);
     Cookies.set('i18next', lang, { expires: 7 }); // Store for 7 days
     setLanguage(lang);
+    window.location.reload()
   };
 
   return (

@@ -1,37 +1,40 @@
 import React, { useState } from "react";
 import NavItem from "./NavItem";
-import SideBar from "./SideBar";
 import { useLanguage } from '../../Context/LanguageContext';
 import { useTranslation } from "react-i18next";
 import { useTheme } from '../../Context/ThemeContext';
+import { GrLanguage } from "react-icons/gr";
+
 const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
     const { t } = useTranslation();
     const { language, changeLanguage } = useLanguage();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    // Function to toggle the sidebar's open/close state
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
-
-    const [isSelect, setIsSelected] = useState("Home");
+    
+    
+        // Function to toggle the sidebar's open/close state
+        const toggleSidebar = () => {
+            setIsSidebarOpen(!isSidebarOpen);
+        };
+   {
+    
+    /* const [isSelect, setIsSelected] = useState("Home");
 
     function chooseSelected(selectedField) {
         setIsSelected(selectedField);
-    }
+    }*/}
 
     return (
-        <div className="dark:bg-gray-900 dark:text-gray-200 p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-center md:justify-between !z-10" dir={language != "en" ? "rtl" : "ltr"}>
+        <div className="dark:bg-gray-900 dark:text-gray-200 p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-between md:justify-between !z-30" dir={language !== "en" ? "rtl" : "ltr"}>
             <div className="flex items-center">
                 <img src="/1edited.png" alt="Hope Makers Logo" className="" />
             </div>
             <div className="hidden" onClick={toggleSidebar}>
                 <i className="fa-solid fa-bars"></i>
             </div>
-            <nav className="lg:pr-6 hidden lg:block">
+            <nav className="lg:pr-6 ">
                 <ul className="flex gap-4 items-center text-white">
-                   { /*<NavItem
+                    { /*<NavItem
                         iconClasses={"fa-solid fa-house"}
                         title={t("Home")}
                         onClick={() => chooseSelected("Home")}
@@ -73,6 +76,13 @@ const Navbar = () => {
                                 fill-rule="evenodd" clip-rule="evenodd"></path>
                         </svg>
                     </button>
+                    <button
+                        className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 text-blue-500"
+                        onClick={() => changeLanguage(language === "en" ? "ar" : "en")}
+                    >
+                        <GrLanguage size={28} />
+                    </button>
+
                 </ul>
             </nav>
             {/*<SideBar isSideBarOpen={isSidebarOpen} toggleSideBar={() => toggleSidebar()}/>*/}
