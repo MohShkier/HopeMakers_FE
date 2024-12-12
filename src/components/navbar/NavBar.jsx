@@ -25,7 +25,7 @@ const Navbar = () => {
     }*/}
 
     return (
-        <div className="dark:bg-gray-900 dark:text-gray-200 p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-between md:justify-between !z-30" dir={language !== "en" ? "rtl" : "ltr"}>
+        <div className="dark:bg-gray-900 dark:text-gray-200 p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-between md:justify-between !z-30 " dir={language !== "en" ? "rtl" : "ltr"}>
             <div className="flex items-center">
                 <img src="/1edited.png" alt="Hope Makers Logo" className="" />
             </div>
@@ -66,8 +66,8 @@ const Navbar = () => {
                     />*/}
 
                     <button
-                        class="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 " onClick={toggleTheme}>
-                        <svg class="fill-blue-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                        className="h-12 w-12 rounded-lg p-2  hover:bg-gray-200 transition-all duration-500 hover:scale-90" onClick={toggleTheme}>
+                        <svg className="fill-blue-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
                         <svg class="fill-yellow-500 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
@@ -76,6 +76,8 @@ const Navbar = () => {
                                 fill-rule="evenodd" clip-rule="evenodd"></path>
                         </svg>
                     </button>
+
+                    
                     <button
                         className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 text-blue-500"
                         onClick={() => changeLanguage(language === "en" ? "ar" : "en")}

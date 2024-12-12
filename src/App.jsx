@@ -12,6 +12,8 @@ import Footer from './components/Footer/Footer';
 import { LanguageProvider } from "./Context/LanguageContext"; // Adjust path as needed
 import { useLanguage } from './Context/LanguageContext';
 import { ThemeProvider } from './Context/ThemeContext';
+import ResetPassPage from './components/ResetPassPage/ResetPage';
+import EnterNewPass from './components/ResetPassPage/enterNewPass';
 
 const App = () => {
   const { language, changeLanguage } = useLanguage();
@@ -36,13 +38,7 @@ const App = () => {
 };
 
 const AppWrapper = () => (
-  <BrowserRouter>
-    <LanguageProvider>
-    <ThemeProvider>
-      <App />
-      </ThemeProvider>
-    </LanguageProvider>
-  </BrowserRouter>
+ <EnterNewPass/>
 );
 
 export default AppWrapper;
