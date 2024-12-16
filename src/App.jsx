@@ -12,16 +12,24 @@ import Footer from './components/Footer/Footer';
 import { LanguageProvider } from "./Context/LanguageContext"; // Adjust path as needed
 import { useLanguage } from './Context/LanguageContext';
 import { ThemeProvider } from './Context/ThemeContext';
+import { useState } from 'react';
+
+
+// Handle toggle
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSidebar = () => setIsOpen((prev) => !prev);
   const { language, changeLanguage } = useLanguage();
   return (
     <>
-      <NavBar />
+      <NavBar isOpen={isOpen} toggleSidebar={() => toggleSidebar()}/>
       <div className="flex min-h-screen !w-full bg-blue-50" dir={language==="en" ? "!ltr" : "rtl"}>
-        <AccountPageSidebar />
+        <AccountPageSidebar isOpen={isOpen} toggleSidebar={() => toggleSidebar()}/>
         <Routes>
           <Route path="/pages/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
+
           <Route path="/pages/profile" element={<ProfileContent />} />
           <Route path="/pages/settings" element={<SettingsPage />} />
           <Route path="/pages/security" element={<SecurityPage />} />

@@ -201,7 +201,7 @@ const InfoGrid = ({ title, steps }) => (
             >
               <i className={`fa-solid ${step.icon} text-3xl`}></i>
             </div>
-            <h3 className="font-bold text-xl">{step.title}</h3>
+            <h3 className="font-bold text-xl dark:text-white">{step.title}</h3>
             <p className="text-gray-600 dark:text-gray-400">
               {step.description}
             </p>

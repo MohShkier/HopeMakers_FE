@@ -5,14 +5,14 @@ import { useLanguage } from '../../Context/LanguageContext';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../Context/ThemeContext';
 
-const AccountPageSidebar = () => {
+const AccountPageSidebar = ({isOpen}) => {
   const { theme } = useTheme();
   const { t } = useTranslation();
   const { language } = useLanguage();
 
   return (
     <div 
-      className={`!min-h-screen transition-colors duration-300 ${
+      className={`!min-h-screen !transition-all duration-1000 ${!isOpen ? "hidden" : ""}  ${
         theme === "dark" ? "bg-gray-900 border-blue-400 rtl:border-l-2 ltr:border-r-2 text-gray-200" : "bg-white text-gray-800"
       }`}
       dir={language === "en" ? "ltr" : "rtl"}

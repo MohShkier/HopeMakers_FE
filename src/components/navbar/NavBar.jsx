@@ -1,31 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import NavItem from "./NavItem";
 import { useLanguage } from '../../Context/LanguageContext';
 import { useTranslation } from "react-i18next";
 import { useTheme } from '../../Context/ThemeContext';
 import { GrLanguage } from "react-icons/gr";
+import Switch from "../Footer/Test";
 
-const Navbar = () => {
+const Navbar = ({isOpen, toggleSidebar}) => {
     const { theme, toggleTheme } = useTheme();
     const { t } = useTranslation();
     const { language, changeLanguage } = useLanguage();
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    
-    
+    { //const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+
         // Function to toggle the sidebar's open/close state
-        const toggleSidebar = () => {
-            setIsSidebarOpen(!isSidebarOpen);
-        };
-   {
-    
+       // const toggleSidebar = () => {
+       //     setIsSidebarOpen(!isSidebarOpen);
+     //   };
+
+
     /* const [isSelect, setIsSelected] = useState("Home");
 
     function chooseSelected(selectedField) {
         setIsSelected(selectedField);
     }*/}
+    // State to toggle the sidebar
+
 
     return (
-        <div className="dark:bg-gray-900 dark:text-gray-200 p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-between md:justify-between !z-30 " dir={language !== "en" ? "rtl" : "ltr"}>
+        <div className="dark:bg-gray-800 dark:text-gray-200 p-4 bg-white text-lg font-bold sticky top-0 text-black shadow-lg flex items-center justify-between md:justify-between !z-30 " dir={language !== "en" ? "rtl" : "ltr"}>
             <div className="flex items-center">
                 <img src="/1edited.png" alt="Hope Makers Logo" className="" />
             </div>
@@ -77,7 +80,7 @@ const Navbar = () => {
                         </svg>
                     </button>
 
-                    
+
                     <button
                         className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 text-blue-500"
                         onClick={() => changeLanguage(language === "en" ? "ar" : "en")}
@@ -85,6 +88,22 @@ const Navbar = () => {
                         <GrLanguage size={28} />
                     </button>
 
+                    <button
+                        onClick={toggleSidebar}
+                        className={` top-4 left-4 z-50 p-2 rounded-full focus:outline-none transition-all ${theme === "dark"
+                                ? "bg-gray-800 text-gray-200 hover:bg-gray-700"
+                                : " text-blue-500 hover:bg-blue-600 hover:text-white"
+                            }`}
+                        aria-label={isOpen ? "Close Sidebar" : "Open Sidebar"}
+                    >
+                        {isOpen ? (
+                            <i className="fa-solid fa-times"></i> // Close Icon
+                        ) : (
+                            <i className="fa-solid fa-bars"></i> // Menu Icon
+                        )}
+                    </button>
+
+                    
                 </ul>
             </nav>
             {/*<SideBar isSideBarOpen={isSidebarOpen} toggleSideBar={() => toggleSidebar()}/>*/}
