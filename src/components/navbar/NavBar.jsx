@@ -4,7 +4,6 @@ import { useLanguage } from '../../Context/LanguageContext';
 import { useTranslation } from "react-i18next";
 import { useTheme } from '../../Context/ThemeContext';
 import { GrLanguage } from "react-icons/gr";
-import Switch from "../Footer/Test";
 
 const Navbar = ({isOpen, toggleSidebar}) => {
     const { theme, toggleTheme } = useTheme();
